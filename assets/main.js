@@ -45,7 +45,7 @@ function copiar(str) {
 }
 
 function generar_mostrar_panid() {
-    const panid = document.getElementById('#panid');
+    const panid = document.getElementById('panid');
     panid.innerHTML=enteroAleatorio(0, 65534);
 }
 
