@@ -45,7 +45,7 @@ function copiar(str) {
 }
 
 function generar_mostrar_panid() {
-    const panid = document.getElementById('panid');
+    let panid=document.getElementById('panidCode');
     panid.innerHTML=enteroAleatorio(0, 65534);
 }
 
@@ -60,8 +60,8 @@ window.addEventListener("load", function() {
     let btnGenerarPanid = document.getElementById('generarPanid');
     let btnCopiaPanid = document.getElementById('copiaPanid');
 
-    btnGenerarPanid.addEventListener('click', generar_mostrar_panid());
-    btnCopiaPanid.addEventListener('click', copiar(document.getElementById('panidCode').innerHTML))
+    btnGenerarPanid.addEventListener('click', () => { generar_mostrar_panid(); copiar(document.getElementById('panidCode').innerHTML) });
+    btnCopiaPanid.addEventListener('click', () => copiar(document.getElementById('panidCode').innerHTML))
 
     //Start
     generarLlaveZigbee()
