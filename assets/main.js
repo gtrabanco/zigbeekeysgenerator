@@ -20,8 +20,6 @@ function ver_keys() {
     let secure=document.getElementById('secure')
     let idtag=document.getElementById('keys')
 
-    console.log(secure)
-
     if (secure.checked) {
         idtag.innerHTML = 'zigbee2mqtt_keys: ['
         idtag.innerHTML += keys.join(', ') + ']'
