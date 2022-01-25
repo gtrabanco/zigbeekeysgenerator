@@ -46,13 +46,7 @@ function copiar(str) {
 
 function generar_mostrar_panid() {
     const panid = document.getElementById('#panid');
-    panid.innerHTML.value=enteroAleatorio(0, 65534);
-}
-
-function copiar_panid() {
-    const el = document.createElement('textarea')
-    const panid = document.getElementById('panidCode');
-    el.value
+    panid.innerHTML=enteroAleatorio(0, 65534);
 }
 
 window.addEventListener("load", function() {
@@ -60,14 +54,14 @@ window.addEventListener("load", function() {
     let btnGen=document.getElementById('enviar')
     let btnCopy=document.getElementById('copy')
     btnGen.addEventListener('click', () => generarLlaveZigbee())
-    btnCopy.addEventListener('click', () => copiar(document.getElementById('keys').innerHTML.value))
+    btnCopy.addEventListener('click', () => copiar(document.getElementById('keys').innerHTML))
     secure.addEventListener('click', () => ver_keys())
 
     let btnGenerarPanid = document.getElementById('generarPanid');
     let btnCopiaPanid = document.getElementById('copiaPanid');
 
     btnGenerarPanid.addEventListener('click', generar_mostrar_panid());
-    btnCopiaPanid.addEventListener('click', copiar(document.getElementById('panidCode').innerHTML.value))
+    btnCopiaPanid.addEventListener('click', copiar(document.getElementById('panidCode').innerHTML))
 
     //Start
     generarLlaveZigbee()
