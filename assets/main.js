@@ -34,14 +34,24 @@ function enteroAleatorio(minimo, maximo) {
     return Math.floor(Math.random() * (maximo - minimo + 1)) + minimo
 }
 
-function copiar(str) {
+function copiar_codigos() {
     const el = document.createElement('textarea')
-    el.value = str
-    el.setAttribute('readonly', '');
-    document.body.appendChild(el)
-        .select()
-        .execCommand('copy');
-    document.removeChild(el);
+    el.value = document.getElementById('keys').innerHTML
+    el.setAttribute('readonly','')
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+}
+
+function copiar_panid() {
+    const el = document.createElement('textarea')
+    el.value = document.getElementById('panidCode').innerHTML
+    el.setAttribute('readonly','')
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
 }
 
 function generar_mostrar_panid() {
@@ -54,14 +64,14 @@ window.addEventListener("load", function() {
     let btnGen=document.getElementById('enviar')
     let btnCopy=document.getElementById('copy')
     btnGen.addEventListener('click', () => generarLlaveZigbee())
-    btnCopy.addEventListener('click', () => copiar(document.getElementById('keys').innerHTML))
+    btnCopy.addEventListener('click', () => copiar_codigos())
     secure.addEventListener('click', () => ver_keys())
 
     let btnGenerarPanid = document.getElementById('generarPanid');
     let btnCopiaPanid = document.getElementById('copiaPanid');
 
-    btnGenerarPanid.addEventListener('click', () => { generar_mostrar_panid(); copiar(document.getElementById('panidCode').innerHTML) });
-    btnCopiaPanid.addEventListener('click', () => copiar(document.getElementById('panidCode').innerHTML))
+    btnGenerarPanid.addEventListener('click', () => { generar_mostrar_panid(); copiar_panid(); });
+    btnCopiaPanid.addEventListener('click', () => copiar_panid())
 
     //Start
     generarLlaveZigbee()
